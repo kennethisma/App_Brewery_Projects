@@ -14,8 +14,9 @@ def encrypt(text, shift):
     index_cipher = 0
     for i in text:
         index_cipher = alphabet.index(i) + shift
-        if index_cipher == len(alphabet):
-            cipher_text += alphabet[-index_cipher]
+        if index_cipher >= len(alphabet):
+            alphabet.extend(alphabet)
+            cipher_text += alphabet[index_cipher]
         else:
             cipher_text += alphabet[index_cipher]
     print(cipher_text)
