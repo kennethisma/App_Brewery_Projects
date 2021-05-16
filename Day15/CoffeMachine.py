@@ -1,4 +1,4 @@
-# My soulution#####################################3
+############################# My soulution#####################################3
 from Menu_and_resources import MENU, resources
 
 # TODO 4. Check resources sufficient?
