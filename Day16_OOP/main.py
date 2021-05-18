@@ -1,4 +1,4 @@
-##################################### My solution #####################################
+############################################# My solution #####################################
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
 from money_machine import MoneyMachine
@@ -26,7 +26,7 @@ while not turn_off:
         if machine_resources.is_resource_sufficient(user_order) and money.make_payment(user_order.cost):
             machine_resources.make_coffee(user_order)
 
-# Angela's solution ############################################3
+############################################## Angela's solution ###############################################
 # from menu import Menu
 # from coffee_maker import CoffeeMaker
 # from money_machine import MoneyMachine
