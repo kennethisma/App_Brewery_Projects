@@ -22,7 +22,6 @@ while not turn_off:
         turn_off = True
     else:
         user_order = products.find_drink(order)
-        print(user_order)
         if machine_resources.is_resource_sufficient(user_order) and money.make_payment(user_order.cost):
             machine_resources.make_coffee(user_order)
 
