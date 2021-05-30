@@ -27,7 +27,7 @@ def calculator():
     num1 = int(input("What's the first number?: "))
     wants_continue = True
 
-    while wants_continue:
+    while wants_continue: # A flag
         for k in operations:
             print(k)
 
@@ -45,7 +45,7 @@ def calculator():
             num1 = answer
         else:
             wants_continue = False
-            calculator()
+            calculator()#Recursio:Cuando la funcion se llama asi misma.
 
 
 calculator()
