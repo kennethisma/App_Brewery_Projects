@@ -1,16 +1,26 @@
 from turtle import Turtle
 
 
+NORTH = 90
+SOUTH = 270
+EAST = 0
+WEST = 180
+
+
 class Snake:
     def __init__(self):
         self.squares = []
-        self.square_width = 0
+        self.create_snake()
+        self.head = self.squares[0]
+
+    def create_snake(self):
+        square_start_position = 0
         for _ in range(3):
             square = Turtle(shape="square")
             square.color("White")
             square.penup()
-            square.goto(x=self.square_width, y=0)
-            self.square_width -= 20  # Decreases the x coordinates
+            square.goto(x=square_start_position, y=0)
+            square_start_position -= 20  # Decreases the x coordinates
             self.squares.append(square)
 
     def move(self):
@@ -19,16 +29,20 @@ class Snake:
             new_x = self.squares[squ - 1].xcor()
             new_y = self.squares[squ - 1].ycor()
             self.squares[squ].goto(new_x, new_y)
-        self.squares[0].forward(20)
+        self.head.forward(20)
 
     def turn_up(self):
-        self.squares[0].setheading(90)
+        if self.head.heading() != SOUTH:
+            self.head.setheading(NORTH)
 
     def turn_right(self):
-        self.squares[0].setheading(0)
+        if self.head.heading() != WEST:
+            self.head.setheading(EAST)
 
     def turn_left(self):
-        self.squares[0].setheading(180)
+        if self.head.heading() != EAST:
+            self.head.setheading(WEST)
 
     def turn_down(self):
-        self.squares[0].setheading(270)
+        if self.head.heading() != NORTH:
+            self.head.setheading(SOUTH)
