@@ -1,14 +1,15 @@
 from turtle import Turtle
 
-
+# Constants
 NORTH = 90
 SOUTH = 270
 EAST = 0
 WEST = 180
 
 
-class Snake:
+class Snake(Turtle):
     def __init__(self):
+        super().__init__()
         self.squares = []
         self.create_snake()
         self.head = self.squares[0]
