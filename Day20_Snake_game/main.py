@@ -28,8 +28,19 @@ while game_on:
     if snake.head.distance(food) < 15:
         food.rand_location()
         score_board.add_point()
+        snake.add_tale()
+
+    elif snake.touch_wall():
+        score_board.end_game()
+        game_on = False
+
+    elif snake.collision():
+        score_board.end_game()
+        game_on = False
 
     screen.onkey(fun=snake.turn_up, key="Up")
     screen.onkey(fun=snake.turn_right, key="Right")
     screen.onkey(fun=snake.turn_left, key="Left")
     screen.onkey(fun=snake.turn_down, key="Down")
+
+screen.exitonclick()

@@ -14,9 +14,14 @@ class ScoreBoarde(Turtle):
 
     def update_score(self):
         self.write(arg=f"Score = {self.score}", align="center",
-                   font=("Arial", 20, "normal"))
+                   font=("Arial", 15, "normal"))
 
     def add_point(self):
         self.score += 1
         self.clear()
         self.update_score()
+
+    def end_game(self):
+        self.goto(x=0, y=0)
+        self.write(arg=f"Your last score = {self.score}", align="center",
+                   font=("Arial", 15, "normal"))
