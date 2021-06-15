@@ -7,7 +7,7 @@ EAST = 0
 WEST = 180
 
 
-class Snake(Turtle):
+class Snake(Turtle):  # Inheritance(herencia de tortuga) Snake hereda todos los metodos de turtle
     def __init__(self):
         super().__init__()
         self.squares = []
@@ -42,6 +42,7 @@ class Snake(Turtle):
         self.squares.append(tale)
 
     def touch_wall(self):
+        '''Return a boolean if turtle has a collision with wall'''
         x_cor = self.head.xcor()
         y_cor = self.head.ycor()
 
@@ -52,12 +53,12 @@ class Snake(Turtle):
         else:
             return False
 
-    def collision(self):
+    def collision_tail(self):
+        '''Return a boolean if turtle's head 
+             has a collision with any squares'''
         collision = False
-        for item in range(2, len(self.squares)):
-            t_x = self.squares[item].xcor()
-            t_y = self.squares[item].ycor()
-            if self.head.distance(t_x, t_y) < 20:
+        for square in self.squares[1:]:  # list slicing
+            if self.head.distance(square) < 10:
                 collision = True
         return collision
 

@@ -30,11 +30,12 @@ while game_on:
         score_board.add_point()
         snake.add_tale()
 
-    elif snake.touch_wall():
+    # Detect collision with wall
+    if snake.touch_wall():
         score_board.end_game()
         game_on = False
-
-    elif snake.collision():
+    # Detect collision with tail
+    elif snake.collision_tail():
         score_board.end_game()
         game_on = False
 

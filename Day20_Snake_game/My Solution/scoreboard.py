@@ -23,5 +23,5 @@ class ScoreBoarde(Turtle):
 
     def end_game(self):
         self.goto(x=0, y=0)
-        self.write(arg=f"Your last score = {self.score}", align="center",
+        self.write(arg=f"GAME OVER", align="center",
                    font=("Arial", 15, "normal"))
