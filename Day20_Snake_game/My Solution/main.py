@@ -1,5 +1,5 @@
 
-from turtle import Screen
+from turtle import Screen, update
 from snake import Snake
 from food import Food
 from scoreboard import ScoreBoarde
@@ -18,7 +18,8 @@ snake = Snake()
 food = Food()
 score_board = ScoreBoarde()
 game_on = True
-score = 0
+
+
 while game_on:
     screen.update()
     time.sleep(0.1)
@@ -30,14 +31,12 @@ while game_on:
         score_board.add_point()
         snake.add_tale()
 
-    # Detect collision with wall
-    if snake.touch_wall():
-        score_board.end_game()
-        game_on = False
-    # Detect collision with tail
-    elif snake.collision_tail():
-        score_board.end_game()
-        game_on = False
+    # Detect collision with wall and  Detect collision with tail
+    if snake.touch_wall() or snake.collision_tail():
+        score_board.add_high_score()
+        score_board.reset_score()
+        snake.delete_tail()
+        snake.start_again()
 
     screen.onkey(fun=snake.turn_up, key="Up")
     screen.onkey(fun=snake.turn_right, key="Right")

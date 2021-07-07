@@ -62,6 +62,16 @@ class Snake(Turtle):  # Inheritance(herencia de tortuga) Snake hereda todos los 
                 collision = True
         return collision
 
+    def delete_tail(self):
+        for square in self.squares[3:]:
+            self.squares.remove(square)
+            square.reset()
+            square.hideturtle()
+
+    def start_again(self):
+        for square in self.squares:
+            square.home()
+
     def turn_up(self):
         if self.head.heading() != SOUTH:
             self.head.setheading(NORTH)
