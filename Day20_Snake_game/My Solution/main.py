@@ -24,6 +24,11 @@ while game_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    # Storing high score in high_score.txt
+    with open("high_score.txt", mode="w") as score_file:
+        score_file.write(str(score_board.high_score))
+
     # Detect collision with food
 
     if snake.head.distance(food) < 15:
@@ -42,5 +47,6 @@ while game_on:
     screen.onkey(fun=snake.turn_right, key="Right")
     screen.onkey(fun=snake.turn_left, key="Left")
     screen.onkey(fun=snake.turn_down, key="Down")
+
 
 screen.exitonclick()
